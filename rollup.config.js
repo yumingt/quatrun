@@ -1,7 +1,7 @@
 import copy from "rollup-plugin-copy";
 
 module.exports = {
-  input: "game.js",
+  input: "index.js",
   output: {
     dir: "dist",
   },
