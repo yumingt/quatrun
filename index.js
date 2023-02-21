@@ -8,11 +8,11 @@ let obstacleSprite;
 var ground, gameOverImg;
 
 function preload() {
-  playerSprite = loadImage("box cat.PNG");
-  obstacleSprite = loadImage("1pot.PNG");
-  backImage = loadImage("background.PNG");
-  groundImage = loadImage("ground.PNG");
-  gameOverImg = loadImage("game over black.png");
+  playerSprite = loadImage("images/box cat.PNG");
+  obstacleSprite = loadImage("images/1pot.PNG");
+  backImage = loadImage("images/background.PNG");
+  groundImage = loadImage("images/ground.PNG");
+  gameOverImg = loadImage("images/game over black.png");
 }
 
 function setup() {
