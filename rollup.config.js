@@ -1,14 +1,14 @@
 import copy from "rollup-plugin-copy";
 
 module.exports = {
-  input: "index.js",
+  input: "game.js",
   output: {
     dir: "dist",
   },
   treeshake: false,
   plugins: [
     copy({
-      targets: [{ src: ["index.html", "images"], dest: "dist" }]
-    })
+      targets: [{ src: ["index.html", "images"], dest: "dist" }],
+    }),
   ],
 };
