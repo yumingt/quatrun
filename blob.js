@@ -1,5 +1,5 @@
 class Blob {
-  constructor(image, width, height){
+  constructor(image){
     this.size = 50;
     this.x = width;
     this.y = height - this.size - 50;
@@ -8,19 +8,19 @@ class Blob {
     this.sprite.addImage(image);
     this.sprite.scale = 0.3;
   }
-
+  
   setSpeed(speed){
     this.speed = speed;
   }
-
+  
   getX(){
     return this.x;
   }
-
+  
   move(){
     this.x -= this.speed;
   }
-
+  
   show(){
     this.sprite.position.x = this.x;
     drawSprites();

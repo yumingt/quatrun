@@ -1,5 +1,5 @@
 {
-  "name": "quatrun",
+  "name": "hcde438mp3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,17 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yumingt/quatrun.git"
+    "url": "git+https://github.com/yumingt/hcde438mp3.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yumingt/quatrun/issues"
+    "url": "https://github.com/yumingt/hcde438mp3/issues"
   },
-  "homepage": "https://github.com/yumingt/quatrun#readme",
+  "homepage": "https://github.com/yumingt/hcde438mp3#readme",
   "dependencies": {
-    "p5": "^1.5.0",
-    "p5.play": "^3.6.3",
     "three": "^0.149.0"
   },
   "devDependencies": {

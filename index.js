@@ -8,11 +8,11 @@ let obstacleSprite;
 var ground, gameOverImg;
 
 function preload() {
-  playerSprite = loadImage("./images/box cat.PNG");
-  obstacleSprite = loadImage("./images/1pot.PNG");
-  backImage = loadImage("./images/background.PNG");
-  groundImage = loadImage("./images/ground.PNG");
-  gameOverImg = loadImage("./images/game over black.png")
+  playerSprite = loadImage("box cat.PNG");
+  obstacleSprite = loadImage("1pot.PNG");
+  backImage = loadImage("background.PNG");
+  groundImage = loadImage("ground.PNG");
+  gameOverImg = loadImage("game over black.png")
 }
 
 function setup() {
@@ -35,7 +35,6 @@ function keyPressed() {
 
 function draw() {
 
-  //camera.bound.max.x = 1000000;
   background(backImage);
   //player.display();
   gameOver.visible = false;
@@ -51,7 +50,7 @@ function draw() {
 
   if (random(1) < 0.03) {
     if (score > minScore) {
-      blobs.push(new Blob(obstacleSprite, 800, 300));
+      blobs.push(new Blob(obstacleSprite));
       minScore = score + 2 + random(1);
     }
   }
