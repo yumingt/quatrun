@@ -1,6 +1,25 @@
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyClwzQigSQ8LfdjBg7u_eG_gGdOkP1gqmw",
+  authDomain: "quatrun-6d711.firebaseapp.com",
+  projectId: "quatrun-6d711",
+  storageBucket: "quatrun-6d711.appspot.com",
+  messagingSenderId: "679167722805",
+  appId: "1:679167722805:web:5dfc047bd1ed428974787c"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Use Firebase Authentication and Firestore
+export const auth = firebase.auth();
+export const db = firebase.firestore();
+
 var serial; // variable to hold an instance of the serialport library
 var portName = 'COM3'; //rename to the name of your port
-var jump; //some data coming in over serigiyguhijlknm m, hxesetdytal! (left button)
+var jump; //some data coming in over serial! (left button)
 var die; //some data coming in over serial! (right button)
 
 let player; // variable for player
@@ -21,7 +40,40 @@ function preload() {
   gameOverImg = loadImage("game over black.png") // load game over image onto game over sprite
 }
 
+const loginGoogle = document.getElementById('login-google');
+const loginAnonymous = document.getElementById('login-anonymous');
+
+// Add event listeners to login buttons
+loginGoogle.addEventListener('click', async () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  try {
+    await firebase.auth().signInWithPopup(provider);
+    console.log("Google signin");
+    document.location.href = 'http://yumingt.github.io/hcde438mp3';
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+loginAnonymous.addEventListener('click', () => {
+  firebase.auth().signInAnonymously();
+  console.log("Anon signin");
+  document.location.href = 'http://yumingt.github.io/hcde438mp3';
+});
+
 function setup() {
+  createCanvas(800, 300);
+  // Listen for authentication state changes
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      // User is logged in
+      saveHighScore(user.uid, highScore);
+    } else {
+      // User is logged out
+      showLoginScreen();
+    }
+  });
+
   serial = new p5.SerialPort();       // make a new instance of the serialport library
   serial.on('list', printList);       // set a callback function for the serialport list event
   serial.on('connected', serverConnected); // callback for connecting to the server
@@ -32,7 +84,6 @@ function setup() {
 
   serial.list();                      // list the serial ports
   serial.open(portName);              // open a serial port
-  createCanvas(800, 300);
   player = new Player(210, 236, 1920, 800, playerSprite);
   ground = createSprite(width, 54, width, 40);
   ground.addImage(groundImage);
@@ -82,10 +133,6 @@ function serialEvent() {
       // got something that's not a json
     }
   }
-}
-
-function doSomething() {
-  serial.write(255); // when button is pressed, LED lights up
 }
 
 function draw() {
@@ -140,4 +187,18 @@ function draw() {
   }
 
   drawSprites(); // displays sprites
+}
+
+function saveHighScore(userId, score) {
+  // Save high score to Firebase
+  const db = firebase.firestore();
+  db.collection('high-scores').doc(userId).set({
+    score: score,
+  });
+}
+
+function showLoginScreen() {
+  // Show login screen
+  const loginScreen = document.getElementById('login-screen');
+  loginScreen.style.display = 'block';
 }
