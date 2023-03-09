@@ -9,18 +9,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "web-dev-server --node-resolve --open --watch",
     "build": "rollup --config",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build --base=/quatrun/ && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yumingt/hcde438mp3.git"
+    "url": "git+https://github.com/yumingt/quatrun.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yumingt/hcde438mp3/issues"
+    "url": "https://github.com/yumingt/quatrun/issues"
   },
-  "homepage": "https://github.com/yumingt/hcde438mp3#readme",
+  "homepage": "https://github.com/yumingt/quatrun#readme",
   "dependencies": {
     "firebase": "^9.17.2",
     "three": "^0.149.0"
