@@ -3,15 +3,34 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <meta charset="utf-8" />
-  <script src="p5.play.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js" type="module"></script>
+    <script src="p5.play.js"></script>
   </head>
   <body>
-    <script src="sketch.js"></script>
-    <script src="player.js"></script>
-    <script src="blob.js"></script>
-    <script src="p5.serialport.js"></script>
+    <script type="module" src="bundle.js"></script>
+    <script type="module" src="/sketch.js"></script>
+    <script type="module" src="/index.js"></script>
+    <script type="module" src="/player.js"></script>
+    <script type="module" src="/blob.js"></script>
+    <script src="/p5.serialport.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/bmoren/p5.collide2D/p5.collide2d.min.js"></script>
+    <div id="picture">
+      <img width="300" src="/cat screen.PNG"></a>
+    </div>
+    <div id="login-screen">
+      <h1>QuatRun</h1>
+      <p>Log in with Google to save your high score</p>
+      <br>
+      <button id="login-google">Log in with Google</button>
+      <br><br>
+      <button id="login-anonymous">Log in anonymously</button>
+    </div>
   </body>
 </html>
