@@ -1,4 +1,5 @@
 class Blob {
+  // constructs obstacle object by setting size, position, and sprite
   constructor(image){
     this.size = 50;
     this.x = width;
@@ -8,23 +9,22 @@ class Blob {
     this.sprite.addImage(image);
     this.sprite.scale = 0.3;
   }
-  
+
   setSpeed(speed){
-    this.speed = speed;
+    this.speed = speed; // sets speed of obstacle
   }
-  
+
   getX(){
-    return this.x;
+    return this.x; // returns x position
   }
-  
+
   move(){
-    this.x -= this.speed;
+    this.x -= this.speed; // sets speed of obstacle
   }
-  
+
   show(){
+    // shows the obstacle sprite
     this.sprite.position.x = this.x;
     drawSprites();
-//    fill(0, 102, 153);
-//    triangle(this.x, height, this.x + this.size / 2, this.y, this.x + this.size, height)
   }
 }
